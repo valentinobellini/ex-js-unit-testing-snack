@@ -4,6 +4,12 @@ function getInitials(nomeCompleto) {
 }
 
 
+function createSlug(stringa) {
+    return stringa.toLowerCase();
+}
+
+
 module.exports = {
-    getInitials
+    getInitials,
+    createSlug
 }
