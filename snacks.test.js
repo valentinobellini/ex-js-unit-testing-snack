@@ -43,3 +43,18 @@ test('La funzione average calcola la media aritmetica di un array di numeri.', (
     expect(average([10, 20, 30, 40, 50])).toBe(30);
     expect(() => average([10, 20, 'ciao', 40, 50])).toThrow();
 })
+
+
+
+
+// 🏆 Snack 4
+// Creare un test che verifichi la seguente descrizione:
+
+// 👉 "La funzione createSlug sostituisce gli spazi con -."
+
+// 📌 Esempi:
+// createSlug("Questo è un test") → "questo-e-un-test"
+
+test('La funzione createSlug sostituisce gli spazi con -.', () => {
+    expect(createSlug('Andrea Mardari')).toBe('andrea-mardari')
+})

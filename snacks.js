@@ -5,7 +5,8 @@ function getInitials(nomeCompleto) {
 
 
 function createSlug(stringa) {
-    return stringa.toLowerCase();
+    return stringa.toLowerCase().replaceAll(' ', '-');
+
 }
 
 
