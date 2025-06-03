@@ -1,5 +1,6 @@
 const { getInitials,
-    createSlug
+    createSlug,
+    average
 } = require('./snacks.js')
 
 
@@ -29,4 +30,16 @@ test('La funzione createSlug restituisce una stringa in lowercase.', () => {
     expect(createSlug('CIAO')).toBe('ciao');
     expect(createSlug('Ciao')).toBe('ciao');
 
+})
+
+
+// 🏆 Snack 3
+// Creare un test che verifichi la seguente descrizione:
+
+// 👉 "La funzione average calcola la media aritmetica di un array di numeri."
+
+test('La funzione average calcola la media aritmetica di un array di numeri.', () => {
+    expect(average([10, 20])).toBe(15);
+    expect(average([10, 20, 30, 40, 50])).toBe(30);
+    expect(() => average([10, 20, 'ciao', 40, 50])).toThrow();
 })
