@@ -58,3 +58,38 @@ test('La funzione average calcola la media aritmetica di un array di numeri.', (
 test('La funzione createSlug sostituisce gli spazi con -.', () => {
     expect(createSlug('Andrea Mardari')).toBe('andrea-mardari')
 })
+
+
+
+function isPalindrome(string) {
+    const reversed = string.split('').reverse().join('')
+    return string === reversed
+}
+
+
+// 🏆 Snack 5
+// Creare un test che verifichi la seguente descrizione:
+
+// 👉 "La funzione isPalindrome verifica se una stringa è un palindromo."
+
+// 📌 Nota: una stringa palindroma è una sequenza di caratteri che si legge uguale sia da sinistra a destra che da destra a sinistra.
+
+test('La funzione isPalindrome verifica se una stringa è un palindromo.', () => {
+    expect(isPalindrome('anna')).toBeTruthy();
+    expect(isPalindrome('carlo')).toBeFalsy();
+
+})
+
+
+
+
+// 🏆 Snack 6
+// Creare un test che verifichi la seguente descrizione:
+
+// 👉 "La funzione createSlug lancia un errore se il titolo è vuoto o non valido."
+
+test('La funzione createSlug lancia un errore se il titolo è vuoto o non valido.', () => {
+    expect(() => createSlug('')).toThrow('Titolo non valido');
+    expect(() => createSlug(null)).toThrow('Titolo non valido');
+
+})
