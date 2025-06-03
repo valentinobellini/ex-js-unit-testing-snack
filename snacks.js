@@ -29,6 +29,35 @@ function average(numbers) {
 }
 
 
+function isPalindrome(string) {
+    const reversed = string.split('').reverse().join('')
+    return string === reversed
+}
+
+
+
+
+
+
+
+
+function findPostById(posts, id) {
+    if (isNaN(id)) {
+        throw new Error(`${id} non è un id`);
+
+    }
+    posts.forEach(p => {
+        if (p.id === undefined ||
+            p.title === undefined ||
+            p.slug === undefined
+        ) {
+            throw new Error("L'array posts non è nel formato corretto");
+
+        }
+    })
+    return posts.find(p => p.id === id)
+
+}
 
 
 
@@ -38,5 +67,7 @@ function average(numbers) {
 module.exports = {
     getInitials,
     createSlug,
-    average
+    average,
+    isPalindrome,
+    findPostById
 }

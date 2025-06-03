@@ -1,6 +1,8 @@
 const { getInitials,
     createSlug,
-    average
+    average,
+    isPalindrome,
+    findPostById
 } = require('./snacks.js')
 
 
@@ -61,10 +63,7 @@ test('La funzione createSlug sostituisce gli spazi con -.', () => {
 
 
 
-function isPalindrome(string) {
-    const reversed = string.split('').reverse().join('')
-    return string === reversed
-}
+
 
 
 // 🏆 Snack 5
@@ -92,4 +91,45 @@ test('La funzione createSlug lancia un errore se il titolo è vuoto o non valido
     expect(() => createSlug('')).toThrow('Titolo non valido');
     expect(() => createSlug(null)).toThrow('Titolo non valido');
 
+})
+
+
+
+
+
+// 🏆 Snack 7
+// Crea un array di oggetti posts, in cui ogni oggetto ha le proprietà id, title e slug.
+
+// Creare un test che verifichi le seguenti descrizioni:
+
+// 👉 "La funzione findPostById restituisce il post corretto dato l’array di post e l’id"
+
+// Creare uno o più test aggiuntivi che controllino che la struttura dati passati sia conforme (ogni post ha le proprietà id, title e slug, viene passato un id numerico).
+
+const posts = [
+    {
+        id: 1,
+        title: "Introduzione a JavaScript",
+        slug: "introduzione-a-javascript"
+    },
+    {
+        id: 2,
+        title: "Come funziona il DOM",
+        slug: "come-funziona-il-dom"
+    },
+    {
+        id: 3,
+        title: "Guida pratica a React",
+        slug: "guida-pratica-a-react"
+    }
+];
+
+test('La funzione findPostById restituisce il post corretto dato l’array di post e l’id', () => {
+    expect(findPostById(posts, 2)).toEqual({
+        id: 2,
+        title: "Come funziona il DOM",
+        slug: "come-funziona-il-dom"
+    })
+    expect(() => findPostById(posts, 'casa')).toThrow('casa non è un id')
+    expect(() => findPostById([1, 2], 2)).toThrow('L\'array posts non è nel formato corretto')
 })
